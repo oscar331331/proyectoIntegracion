@@ -56,7 +56,7 @@
                                         
                     </form>  
                     <center> 
-                    <i class="material-icons button md-48" onclick="window.location.href = 'AgregarProfesor.jsp'">add_circle_outline</i>
+                    <i class="material-icons button md-48" onclick="window.location.href = 'crearProfesor.jsp'">add_circle_outline</i>
                     
                     <font color="white">Agregar Profesor</font>
                 </center>
