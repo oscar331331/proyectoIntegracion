@@ -50,7 +50,7 @@
                                 
                                 <br>Nombre: <input type="text" name="txtNombre" value="${sessionScope.objetoAeditar.nombreProfesor}" required/>
                                 <br/>
-                                Apellido: <input type="text" name="txtApellido:" value="${sessionScope.objetoAeditar.apellidoProfesor}" required/>
+                                Apellido: <input type="text" name="txtApellido" value="${sessionScope.objetoAeditar.apellidoProfesor}" required/>
                                 <br/>
                                 Correo <input type="text" name="txtCorreo" value="${sessionScope.objetoAeditar.correoProfesor}" required/>
                                 <br/>

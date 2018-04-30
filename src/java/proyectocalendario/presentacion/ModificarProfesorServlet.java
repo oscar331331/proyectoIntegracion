@@ -74,12 +74,12 @@ public class ModificarProfesorServlet extends HttpServlet {
                 sesion.setAttribute("objetoAeditar", infoProfesor);
                 response.sendRedirect("agregarProfesor.jsp");
             } else {
-                sesion.setAttribute("msgError", "no existe información a modificar, problemas asociados ");
+                sesion.setAttribute("msgError", "GET no existe información a modificar, problemas asociados ");
                 response.sendRedirect("Home.jsp");
             }
 
         } catch (Exception ex) {
-            sesion.setAttribute("msgError", "no se pudo modificar, problemas asociados " + ex.getMessage());
+            sesion.setAttribute("msgError", "GET no se pudo modificar, problemas asociados " + ex.getMessage());
             response.sendRedirect("Home.jsp");
         }
     }
@@ -96,6 +96,7 @@ public class ModificarProfesorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sesion = request.getSession();
+        
         int codigoProfesor = Integer.parseInt(request.getParameter("txtId"));
         String nuevoNombre=request.getParameter("txtNombre");
         String nuevoApellido= request.getParameter("txtApellido");
@@ -117,12 +118,12 @@ public class ModificarProfesorServlet extends HttpServlet {
                 response.sendRedirect("mantenedorProfesor.jsp");
             } else {
                 sesion.setAttribute("msgError", "no existe información a modificar, problemas asociados ");
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("mantenedorProfesor.jsp");
             }
 
         } catch (Exception ex) {
             sesion.setAttribute("msgError", "no se pudo modificar, problemas asociados " + ex.getLocalizedMessage());
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("mantenedorProfesor.jsp");
         }                  
     }
 
