@@ -11,33 +11,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="tableCss/css/style.css">
         <title>Mantenedor Proyecto</title>
     </head>
-    <body style="background-color:#4C77B0;">        
+    <body >        
         <c:choose>        
             <c:when test="${sessionScope.usuarioConectado==null}">
                 <jsp:forward page="login.jsp"/>
             </c:when>
             <c:otherwise>
-                <jsp:useBean id="usuarioConectado" class="proyectocalendario.dto.administradorDTO" scope="session"/>
                 <jsp:useBean id="profesor" class="proyectocalendario.entitys.Profesor" scope="page"/>
-                <h2><font color=red>Welcome Usuario: <c:out value="${usuarioConectado.nombre_administrador}"></c:out></h2></font>
-                    <h1>Mantenedor Profesor</h1>
+                <jsp:useBean id="usuarioConectado" class="proyectocalendario.dto.administradorDTO" scope="session"/>
+                <p style="text-align: right">Bienvenido(a) <b><c:out value="${usuarioConectado.nombre_administrador}"></c:out></b> | <a href="./cerrarSesion">Cerrar Sesión</a></p>
+                <HR width=100%>   
                 <jsp:include page="./getAllProfesor" flush="true"/>
-                <fieldset><legend>Profesor</legend>
+                <div class="table-users">
+                <div class="header">Profesores</div>
                     <form name="frmAgregaProfesor" method="post" action="./agregarProfesor">
-                        <table style="background-color:#FFFFFF;">
-                            <thead>
-                                <tr>
-                                <th colspan="3">Mantenedor Profesor</th>
-                               </tr>
-                                <tr>
-                                    <th>Nombre profesor</th>
-                                    <th>Editar</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <table cellspacing="0">
+                            <tr>
+                            <th>Nombre profesor</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                            </tr>
                                 <c:forEach items="${listaProfesor}" var="profesor">
                                     <tr>
                                         <td><c:out value="${profesor.nombreProfesor}"/></td>
@@ -49,22 +46,22 @@
                                                 <c:param name="codigoProfesor" value="${profesor.idProfesor}"/>
                                             </c:url>
                                         <td><i class="material-icons button delete" onclick="window.location.href = '${eliminaProfesor}'">delete</i></td>
-                                            </tr>
+                                    </tr>
                                 </c:forEach>
-                            </tbody>
+                            
                         </table>
-                                        
+                        </div>
                     </form>  
                     <center> 
                     <i class="material-icons button md-48" onclick="window.location.href = 'crearProfesor.jsp'">add_circle_outline</i>
                     
-                    <font color="white">Agregar Profesor</font>
+                    <font color="black">Agregar Profesor</font>
                 </center>
                     <c:if test="${sessionScope.msgError!=null}">
                         <c:out value="${msgError}"/>
                         <c:remove var="msgError"/>
                     </c:if>                                       
-                </fieldset>
+                
                 <c:if test="${sessionScope.objetoAeditar!=null}">
                     <fieldset><legend>Edición</legend>
                         <jsp:useBean id="objetoAeditar" class="proyectocalendario.entitys.Profesor"  scope="page"/>

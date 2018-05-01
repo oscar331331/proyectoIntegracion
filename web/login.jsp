@@ -56,7 +56,10 @@
 					</div>
 
 					<div class="text-right p-t-13 p-b-23">
-						
+						<c:if test="${sessionScope.msgError!=null}">
+                                                    <c:out value="${msgError}"/>
+                                                    <c:remove var="msgError"/>
+                                                </c:if>
 					</div>
 
 					<div class="container-login100-form-btn">
