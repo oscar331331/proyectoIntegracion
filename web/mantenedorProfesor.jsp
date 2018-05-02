@@ -42,7 +42,7 @@
                                             <c:param name="codigoProfesor" value="${profesor.idProfesor}"/>
                                         </c:url>
                                         <td><i class="material-icons button edit" onclick="window.location.href = '${modificaProfesor}'">edit</i></td>
-                                            <c:url value="./eliminarProfesor" var="eliminaProfesor">
+                                            <c:url value="./eliminaProfesor" var="eliminaProfesor">
                                                 <c:param name="codigoProfesor" value="${profesor.idProfesor}"/>
                                             </c:url>
                                         <td><i class="material-icons button delete" onclick="window.location.href = '${eliminaProfesor}'">delete</i></td>
