@@ -24,29 +24,54 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Vito
  */
 @Entity
-@Table(name = "evento", catalog = "bd_calendario", schema = "")
+@Table(name = "evento")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Evento.findAll", query = "SELECT e FROM Evento e"),
     @NamedQuery(name = "Evento.findByIdEvento", query = "SELECT e FROM Evento e WHERE e.idEvento = :idEvento"),
     @NamedQuery(name = "Evento.findByNombreEvento", query = "SELECT e FROM Evento e WHERE e.nombreEvento = :nombreEvento"),
+    @NamedQuery(name = "Evento.findByDescripcionEvento", query = "SELECT e FROM Evento e WHERE e.descripcionEvento = :descripcionEvento"),
+    @NamedQuery(name = "Evento.findBySalaEvento", query = "SELECT e FROM Evento e WHERE e.salaEvento = :salaEvento"),
+    @NamedQuery(name = "Evento.findByFechaEvento", query = "SELECT e FROM Evento e WHERE e.fechaEvento = :fechaEvento"),
+    @NamedQuery(name = "Evento.findByUrlEvento", query = "SELECT e FROM Evento e WHERE e.urlEvento = :urlEvento"),
     @NamedQuery(name = "Evento.findByIdSeccion", query = "SELECT e FROM Evento e WHERE e.idSeccion = :idSeccion")})
 public class Evento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_evento", nullable = false)
+    @Column(name = "id_evento")
     private Integer idEvento;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 32)
-    @Column(name = "nombre_evento", nullable = false, length = 32)
+    @Column(name = "nombre_evento")
     private String nombreEvento;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "id_seccion", nullable = false)
-    private int idSeccion;
+    @Size(min = 1, max = 32)
+    @Column(name = "descripcion_evento")
+    private String descripcionEvento;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 32)
+    @Column(name = "sala_evento")
+    private String salaEvento;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "fecha_evento")
+    private String fechaEvento;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 150)
+    @Column(name = "url_evento")
+    private String urlEvento;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "id_seccion")
+    private String idSeccion;
 
     public Evento() {
     }
@@ -55,9 +80,13 @@ public class Evento implements Serializable {
         this.idEvento = idEvento;
     }
 
-    public Evento(Integer idEvento, String nombreEvento, int idSeccion) {
+    public Evento(Integer idEvento, String nombreEvento, String descripcionEvento, String salaEvento, String fechaEvento, String urlEvento, String idSeccion) {
         this.idEvento = idEvento;
         this.nombreEvento = nombreEvento;
+        this.descripcionEvento = descripcionEvento;
+        this.salaEvento = salaEvento;
+        this.fechaEvento = fechaEvento;
+        this.urlEvento = urlEvento;
         this.idSeccion = idSeccion;
     }
 
@@ -77,11 +106,43 @@ public class Evento implements Serializable {
         this.nombreEvento = nombreEvento;
     }
 
-    public int getIdSeccion() {
+    public String getDescripcionEvento() {
+        return descripcionEvento;
+    }
+
+    public void setDescripcionEvento(String descripcionEvento) {
+        this.descripcionEvento = descripcionEvento;
+    }
+
+    public String getSalaEvento() {
+        return salaEvento;
+    }
+
+    public void setSalaEvento(String salaEvento) {
+        this.salaEvento = salaEvento;
+    }
+
+    public String getFechaEvento() {
+        return fechaEvento;
+    }
+
+    public void setFechaEvento(String fechaEvento) {
+        this.fechaEvento = fechaEvento;
+    }
+
+    public String getUrlEvento() {
+        return urlEvento;
+    }
+
+    public void setUrlEvento(String urlEvento) {
+        this.urlEvento = urlEvento;
+    }
+
+    public String getIdSeccion() {
         return idSeccion;
     }
 
-    public void setIdSeccion(int idSeccion) {
+    public void setIdSeccion(String idSeccion) {
         this.idSeccion = idSeccion;
     }
 

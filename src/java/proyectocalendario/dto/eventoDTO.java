@@ -5,6 +5,8 @@
  */
 package proyectocalendario.dto;
 
+import java.util.Date;
+
 /**
  *
  * @author Vito
@@ -12,11 +14,19 @@ package proyectocalendario.dto;
 public class eventoDTO {
     private int id_evento;
     private String nombre_evento;
-    private int id_seccion;
+    private String descripcion_evento;
+    private String sala_evento;
+    private String fecha_evento;
+    private String url_evento;
+    private String id_seccion;
 
-    public eventoDTO(int id_evento, String nombre_evento, int id_seccion) {
+    public eventoDTO(int id_evento, String nombre_evento, String descripcion_evento, String sala_evento, String fecha_evento, String url_evento, String id_seccion) {
         this.id_evento = id_evento;
         this.nombre_evento = nombre_evento;
+        this.descripcion_evento = descripcion_evento;
+        this.sala_evento = sala_evento;
+        this.fecha_evento = fecha_evento;
+        this.url_evento = url_evento;
         this.id_seccion = id_seccion;
     }
 
@@ -36,14 +46,45 @@ public class eventoDTO {
         this.nombre_evento = nombre_evento;
     }
 
-    public int getId_seccion() {
+    public String getDescripcion_evento() {
+        return descripcion_evento;
+    }
+
+    public void setDescripcion_evento(String descripcion_evento) {
+        this.descripcion_evento = descripcion_evento;
+    }
+
+    public String getSala_evento() {
+        return sala_evento;
+    }
+
+    public void setSala_evento(String sala_evento) {
+        this.sala_evento = sala_evento;
+    }
+
+    public String getFecha_evento() {
+        return fecha_evento;
+    }
+
+    public void setFecha_evento(String fecha_evento) {
+        this.fecha_evento = fecha_evento;
+    }
+
+    public String getUrl_evento() {
+        return url_evento;
+    }
+
+    public void setUrl_evento(String url_evento) {
+        this.url_evento = url_evento;
+    }
+
+    public String getId_seccion() {
         return id_seccion;
     }
 
-    public void setId_seccion(int id_seccion) {
+    public void setId_seccion(String id_seccion) {
         this.id_seccion = id_seccion;
     }
-    
-    
+
     
 }

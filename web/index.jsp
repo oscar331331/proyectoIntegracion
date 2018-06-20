@@ -46,7 +46,7 @@
                         <span class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
                 </a>
                     
-                <a href="#" class="btn">
+                <a href="mantenedorEvento.jsp" class="btn">
                         <span class="btn-content">Eventos</span>
                         <span class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                 </a>

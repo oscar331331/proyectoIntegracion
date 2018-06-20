@@ -1,6 +1,6 @@
 <%-- 
-    Document   : crearEvento
-    Created on : 29/04/2018, 08:54:20 PM
+    Document   : crearProfesor
+    Created on : 29/04/2018, 08:16:12 PM
     Author     : Vito
 --%>
 
@@ -13,28 +13,33 @@
     </head>
     <body>
         <c:choose>        
-            <c:when test="${sessionScope.usuarioConectado==null}">
-                <jsp:forward page="login.jsp"/>
-            </c:when>
+            
             <c:otherwise>
                 
                  <h1>Crear evento</h1>
                 
                 <legend>Evento</legend>
-                    <form name="frmCrearEvento" method="post" action="./crearEvento">
+                    <form name="frmCrearProfesor" method="post" action="./registraEvento">
                         <table>
                             <td>
-                              <input placeholder="Nombre" type="text" required autofocus name="txtNombre">
-                              <input placeholder="Apellido" type="text" required autofocus name="txtApellido">
-                              <input placeholder="correo" type="email" required autofocus name="txtCorreo">
-                              <input placeholder="Usuario" type="text" required autofocus name="txtUsuario">
-                              <input placeholder="Password" type="password" required autofocus name="txtPassword">
+                              <input placeholder="Titulo evento" type="text" required autofocus name="txtTitulo">
+                              <input placeholder="Descripción" type="text" required autofocus name="txtDescripcion">
+                              <input placeholder="Sala" type="text" required autofocus name="txtSala">
+                              <input placeholder="fecha" type="date" required autofocus name="fecha">
+                              <%-- start web service invocation --%><hr/>
+                                <%
+                                
+                                %>
+                                <%-- end web service invocation --%><hr/>
                             </td>
                         </table>
+                        <button name="btnIngresar" type="submit" id="contact-submit" data-submit="...Sending">Agregar</button>
+
                     </form>
                 
                 
             </c:otherwise>
         </c:choose>
+    
     </body>
 </html>
