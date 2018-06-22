@@ -35,7 +35,10 @@
                         </table>
                         <button name="btnIngresar" type="submit" id="contact-submit" data-submit="...Sending">Agregar</button>
 
-                    </form>
+                    </form><br><br>
+                            <form method="get" action="index.jsp">
+                    <button type="submit">Volver</button>
+                </form>
                 
                 
             </c:otherwise>

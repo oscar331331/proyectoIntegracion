@@ -1,5 +1,5 @@
 <%-- 
-    Document   : crearProfesor
+    Document   : crearAlumno
     Created on : 29/04/2018, 08:16:12 PM
     Author     : Vito
 --%>
@@ -44,9 +44,9 @@
        <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form name="frmIngresar" method="post" action="./registraProfesor" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<form name="frmIngresar" method="post" action="./registraAlumno" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
-						Agregar Profesor
+						Agregar Alumno
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Ingresa nombre">
@@ -87,7 +87,7 @@
 					<div class="flex-col-c p-t-170 p-b-40">
 						
 					</div>
-				</form><br><br>
+                                </form><br><br>
                                                     <form method="get" action="index.jsp">
                     <button type="submit">Volver</button>
                 </form>

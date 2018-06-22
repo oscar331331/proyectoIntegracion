@@ -41,7 +41,7 @@
                         <span class="btn-content">Profesores</span>
                         <span class="icon"><i class="fa fa-group" aria-hidden="true"></i></span>
                 </a>
-                <a href="#" class="btn">
+                <a href="mantenedorAlumno.jsp" class="btn">
                         <span class="btn-content">Alumnos</span>
                         <span class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
                 </a>

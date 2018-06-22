@@ -23,6 +23,7 @@
             <c:otherwise>
                 <jsp:useBean id="evento" class="proyectocalendario.entitys.Evento" scope="page"/>
                 <jsp:useBean id="usuarioConectado" class="proyectocalendario.dto.administradorDTO" scope="session"/>
+                
                 <p style="text-align: right">Bienvenido(a) <b><c:out value="${usuarioConectado.nombre_administrador}"></c:out></b> | <a href="./cerrarSesion">Cerrar Sesión</a></p>
                 <HR width=100%>   
                 <jsp:include page="./getAllEvento" flush="true"/>
@@ -33,7 +34,7 @@
                             <tr>
                             <th>Nombre Evento</th>
                             <th>A calendario</th>
-                            <th>Editar</th>
+                            <!--<th>Editar</th>-->
                             <th>Eliminar</th>
                             </tr>
                                 <c:forEach items="${listaEvento}" var="evento">
@@ -42,18 +43,13 @@
                                         <c:url value="${evento.urlEvento}" var="linkEvento">
                                             <c:param name="codigoEvento" value="${evento.idEvento}"/>
                                         </c:url>
-                                        <td><i class="material-icons button edit" onclick="window.location.href = '${linkEvento}'">Link</i></td>
+                                        <td><i class="material-icons" onclick="window.location.href = '${linkEvento}'">calendar_today</i></td>
+
                                         
-                                        
-                                        
-                                        <c:url value="./modificarEvento" var="modificaEvento">
-                                            <c:param name="codigoEvento" value="${evento.idEvento}"/>
-                                        </c:url>
-                                        <td><i class="material-icons button edit" onclick="window.location.href = '${modificaEvento}'">edit</i></td>
                                             <c:url value="./eliminaEvento" var="eliminaEvento">
                                                 <c:param name="codigoEvento" value="${evento.idEvento}"/>
                                             </c:url>
-                                        <td><i class="material-icons button delete" onclick="window.location.href = '${eliminaEvento}'">delete</i></td>
+                                        <td><i class="material-icons" onclick="window.location.href = '${eliminaEvento}'">delete_forever</i></td>
                                     </tr>
                                 </c:forEach>
                             
@@ -63,7 +59,10 @@
                     <center> 
                     <i class="material-icons button md-48" onclick="window.location.href = 'crearEvento.jsp'">add_circle_outline</i>
                     
-                    <font color="black">Agregar Evento</font>
+                    <font color="black">Agregar Evento</font><br><br>
+                    <form method="get" action="index.jsp">
+                    <button type="submit">Volver</button>
+                </form>
                 </center>
                     <c:if test="${sessionScope.msgError!=null}">
                         <c:out value="${msgError}"/>

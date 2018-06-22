@@ -7,6 +7,7 @@ package proyectocalendario.presentacion;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
@@ -94,11 +95,22 @@ private EventoSessionBean objEventoSessionBeans;
                                     java.lang.String titulo = request.getParameter("txtTitulo");
                                     java.lang.String descripcion = request.getParameter("txtDescripcion");
                                     java.lang.String sala = request.getParameter("txtSala");
-                                    DateFormat df= new SimpleDateFormat("yyyy/MM/dd");
-                                    //String fecha= df.format(request.getParameter("fecha"));
-                                    java.lang.String inicio = "20180628";
+                                    
+                                    String fecha = request.getParameter("fecha");
+                                    DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
+                                    Date fechaCal = df.parse(fecha);
+                                    DateFormat fecha3 = new SimpleDateFormat("yyyyMMdd");
+                                    java.lang.String inicio = fecha3.format(fechaCal);
+                                    fechaCal.setDate(fechaCal.getDate()+1);
+                                   
+                                   titulo=titulo.replace(" ", "%20");
+                                   sala=sala.replace(" ", "%20");
+                                   descripcion=descripcion.replace(" ", "%20");
+                                    
+                                    String fin = fecha3.format(fechaCal);
+                                    
                                     // TODO process result here
-                                    java.lang.String result = port.nuevoLink(titulo, descripcion, sala, inicio);
+                                    java.lang.String result = port.nuevoLink(titulo, descripcion, sala, inicio,fin);
                                     urlLink=result;
                                     
                                 } catch (Exception ex) {
@@ -118,8 +130,8 @@ private EventoSessionBean objEventoSessionBeans;
             this.objEventoSessionBeans.addEvento(infoEventoDTO);
             response.sendRedirect("mantenedorEvento.jsp");
         }catch(Exception ex){
-            sesion.setAttribute("msgError", "Error al guardar la información");
-            response.sendRedirect("RegistrarUsuario.jsp");
+            sesion.setAttribute("msgError", ex);
+            response.sendRedirect("mantenedorEvento.jsp");
         }
     }
 

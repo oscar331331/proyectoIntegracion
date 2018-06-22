@@ -10,6 +10,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="sala" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="inicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fin" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
